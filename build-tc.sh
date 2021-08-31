@@ -52,10 +52,10 @@ tg_post_msg "<b>$LLVM_NAME: Building LLVM. . .</b>"
 ./build-llvm.py \
 	--clang-vendor "$LLVM_NAME" \
 	--projects "clang;lld;polly" \
-	--targets "ARM;AArch64" \
+	--targets "ARM;AArch64;X86" \
 	--shallow-clone \
         --lto full \
-	--incremental \
+	--pgo kernel-defconfig \
 	--build-type "Release" 2>&1 | tee build.log
 
 # Check if the final clang binary exists or not.
